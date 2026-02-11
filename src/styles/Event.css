@@ -1,0 +1,353 @@
+.event-details {
+  width: 100%;
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+/* Banner */
+.event-banner {
+  height: 55vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.event-overlay {
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px;
+  color: #fff;
+}
+
+.event-overlay h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.event-overlay p {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* Live Badge */
+.live-badge {
+  background: #ff3b3b;
+  width: fit-content;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+/* Content */
+.event-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  padding: 40px;
+}
+
+.event-left h2 {
+  margin-bottom: 10px;
+}
+
+.event-left p {
+  line-height: 1.7;
+  color: #333;
+}
+
+.event-left h3 {
+  margin-top: 20px;
+}
+
+/* Right Panel */
+.event-right {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  height: fit-content;
+}
+
+.event-stats {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.event-stats h3 {
+  font-size: 36px;
+  color: #2563eb;
+}
+
+/* Buttons */
+.register-btn,
+.cancel-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.register-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.cancel-btn {
+  background: #ef4444;
+  color: white;
+}
+.my-events {
+  padding: 40px;
+}
+
+.my-event-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.my-event-card {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+/* Cards hover */
+.my-event-card,
+.event-right,
+.admin-table tr {
+  transition: all 0.3s ease;
+}
+
+.my-event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Buttons */
+.register-btn:hover {
+  background: #1d4ed8;
+  transform: scale(1.02);
+}
+
+.cancel-btn:hover {
+  background: #dc2626;
+  transform: scale(1.02);
+}
+
+/* Table row hover */
+.admin-table tbody tr:hover {
+  background: #f1f5ff;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.event-details,
+.my-events {
+  animation: fadeUp 0.6s ease;
+}
+.events-page {
+  padding: 40px;
+  min-height: 100vh;
+  background: #f5f5f5;
+  font-family: 'Poppins', sans-serif;
+}
+
+.events-page h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 32px;
+  color: #333;
+}
+
+.events-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.event-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+.event-card h2 {
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.event-card p {
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.details-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #ff7f50;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.details-btn:hover {
+  background: #ff6347;
+}
+.event-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.event-card-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.details-btn {
+  flex: 1;
+  padding: 10px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.register-btn {
+  flex: 1;
+  padding: 10px;
+  background: #16a34a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.details-btn:hover {
+  background: #1e40af;
+}
+
+.register-btn:hover {
+  background: #15803d;
+}
+/* src/styles/EventCard.css */
+
+.event-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+}
+
+.event-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: #f0f0f0;
+}
+
+.event-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 12px 16px 6px;
+  color: #222;
+}
+
+.event-card p {
+  margin: 4px 16px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.register-btn {
+  margin: 16px;
+  padding: 12px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.register-btn:hover {
+  background: #1d4ed8;
+}
+
+/* ADMIN BUTTONS */
+.admin-actions {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.admin-actions button {
+  background: rgba(0, 0, 0, 0.65);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 8px;
+  cursor: pointer;
+}
+/* ADD EVENT CARD */
+.add-event-card-old {
+  border: 2px dashed #999;
+  border-radius: 12px;
+  height: 320px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  background: #f9f9f9;
+}
+
+.add-event-card-old:hover {
+  background: #eaeaea;
+}
+
+.add-icon-old {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}

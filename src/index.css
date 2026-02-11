@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+/* ================================
+   WEDDING / ASTRA STYLE AUTH PAGE
+   DESKTOP FIRST
+================================ */
+
+.auth-page {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* COLORFUL OVERLAY */
+.auth-overlay {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(120, 60, 200, 0.55),
+    rgba(255, 120, 150, 0.45),
+    rgba(255, 200, 120, 0.35)
+  );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* WIDE ELEGANT CARD */
+.auth-card-wide {
+  width: 100%;
+  max-width: 1150px;
+  min-height: 600px;
+
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-radius: 30px;
+  overflow: hidden;
+
+  box-shadow:
+    0 50px 100px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+/* LEFT STORY */
+.auth-left {
+  padding: 5rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-left h1 {
+  font-size: 3.2rem;
+  line-height: 1.1;
+}
+
+.auth-left p {
+  font-size: 1.15rem;
+  max-width: 420px;
+  margin-top: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* RIGHT FORM */
+.auth-right {
+  background: white;
+  padding: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-right h2 {
+  font-size: 2.2rem;
+}
+
+.auth-right p {
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+/* INPUT STYLE */
+.auth-right input {
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 0.95rem;
+}
+
+.auth-right input:focus {
+  border-color: #d946ef;
+  outline: none;
+}
+
+/* BUTTON */
+.auth-btn {
+  margin-top: 0.5rem;
+  padding: 0.9rem;
+  border-radius: 999px;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(
+    to right,
+    #9333ea,
+    #ec4899,
+    #f97316
+  );
+}
+/* Neon glow animation for cards and map */
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff; }
+  50% { box-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff; }
+}
+
+.neon-card {
+  animation: glow 2s infinite alternate;
+}
+
+/* Animated gradient background for dashboard */
+@keyframes bgGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.dashboard-bg {
+  background: linear-gradient(270deg, #ff00ff, #00ffff, #ff9900);
+  background-size: 600% 600%;
+  animation: bgGradient 10s ease infinite;
+}
+/* Neon glow animation for cards */
+@keyframes neonGlow {
+  0% {
+    box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+  }
+  50% {
+    box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+  }
+  100% {
+    box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+  }
+}
+
+.neon-card {
+  animation: neonGlow 2s infinite alternate;
+  border-radius: 1rem;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page {
+  animation: fadeUp 0.6s ease;
+}

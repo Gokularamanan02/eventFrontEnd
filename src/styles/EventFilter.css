@@ -1,0 +1,15 @@
+.filter-bar {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.filter-bar input,
+.filter-bar select {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #1e293b;
+  color: white;
+  width: 100%;
+}

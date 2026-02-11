@@ -1,0 +1,52 @@
+.upcoming-dash-container {
+  background: #0b0c1a;
+  color: white;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.top-panel {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.user-box, .logo-box, .progress-box {
+  background: linear-gradient(135deg, #ff00ff, #2b86c5);
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.progress-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.progress-item {
+  margin: 5px 0;
+  background: rgba(255,255,255,0.2);
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.main-chart {
+  background: linear-gradient(135deg, #2b86c5, #784ba0);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.bottom-charts {
+  display: flex;
+  gap: 20px;
+}
+
+.bar-chart, .map-chart {
+  flex: 1;
+  background: linear-gradient(135deg, #784ba0, #ff3cac);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}

@@ -1,0 +1,90 @@
+.hero-container {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+/* LEFT DARK GRADIENT (KEY PART OF IMAGE) */
+.hero-overlay {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.15)
+  );
+  display: flex;
+  align-items: center;
+}
+
+/* LEFT-ALIGNED CONTENT */
+.hero-content {
+  margin-left: 90px;
+  max-width: 650px;
+  color: #fff;
+}
+
+.hero-content h1 {
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #ddd;
+  margin-bottom: 40px;
+}
+
+/* BUTTONS — SAME STYLE AS IMAGE */
+.hero-actions {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hero-actions button {
+  padding: 14px 32px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  background: #ff9800;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.hero-actions button:hover {
+  background: #ffc107;
+  transform: translateY(-2px);
+}
+
+.hero-actions .outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.hero-actions .outline:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .hero-content {
+    margin: 0 30px;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+  }
+}
