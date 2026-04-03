@@ -1,27 +1,76 @@
-// src/components/Mainpage/Hero.jsx
-import React from "react";
+import { useEffect } from "react";
 
 const Hero = () => {
+
+  useEffect(() => {
+    if (window.tsParticles) {
+      window.tsParticles.load("tsparticles", {
+        fullScreen: { enable: false },
+
+        particles: {
+          number: { value: 80 },
+
+          color: { value: ["#ffffff", "#ff0080", "#00c6ff"] },
+
+          size: { value: { min: 1, max: 3 } },
+
+          move: {
+            enable: true,
+            speed: 0.5,
+          },
+
+          opacity: { value: 0.7 },
+
+          links: { enable: false },
+        },
+      });
+    }
+  }, []);
+
   return (
-    <div className="w-full h-[80vh] relative">
+    <div className="hero-container">
+
+      {/* 🌌 PARTICLES */}
+      <div id="tsparticles"></div>
+
+      {/* BACKGROUND */}
       <img
-        src="/bannere.png" // place the image in public folder
-        alt="Symposium Banner"
-        className="w-full h-full object-cover"
+        src="/bannere.png"
+        alt="banner"
+        className="bg-image"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70 flex flex-col items-center justify-center text-center px-4">
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-          National Level Symposium
-        </h1>
-        <p className="text-lg md:text-2xl text-white mb-6">
-          Innovate • Inspire • Implement
-        </p>
-        <a
-          href="/events"
-          className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition"
-        >
-          Explore Events
-        </a>
+
+      {/* OVERLAY */}
+      <div className="overlay"></div>
+
+      {/* CONTENT */}
+      <div className="content">
+
+        {/* LEFT */}
+        <div className="text-section">
+          <h1>National Level Symposium</h1>
+          <p>Innovate • Inspire • Implement</p>
+
+          <a href="/events" className="btn">
+            Explore Events
+          </a>
+        </div>
+
+        {/* SATURN */}
+        <div className="saturn-wrapper">
+          <div className="saturn-container">
+
+            <div className="saturn-glow"></div>
+
+            <div className="saturn">
+              <div className="ring ring-back"></div>
+              <div className="planet"></div>
+              <div className="ring ring-front"></div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </div>
   );

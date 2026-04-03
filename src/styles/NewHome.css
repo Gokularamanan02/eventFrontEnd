@@ -1,0 +1,129 @@
+/* ===============================
+   HERO SECTION
+================================= */
+
+.hero-container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8%;
+  background: linear-gradient(135deg, #6a11cb, #ff0080, #00c6ff);
+  background-size: 200% 200%;
+  animation: gradientMove 12s ease infinite;
+  color: white;
+  overflow: hidden;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* LEFT TEXT SIDE */
+
+.hero-left {
+  max-width: 600px;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 25px;
+}
+
+.hero-subtitle {
+  font-size: 19px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  opacity: 0.95;
+}
+
+/* BUTTONS */
+
+.hero-buttons {
+  display: flex;
+  gap: 25px;
+}
+
+.btn-primary {
+  padding: 15px 35px;
+  border-radius: 60px;
+  border: none;
+  background: linear-gradient(45deg, #ff00cc, #3333ff);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+}
+
+.btn-secondary {
+  padding: 15px 35px;
+  border-radius: 60px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: white;
+  color: #333;
+  transform: translateY(-5px);
+}
+/* ===============================
+   ADVANCED ARC ORB
+================================= */
+
+.hero-right {
+  position: relative;
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Arc animation */
+@keyframes arcMove {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 400;
+  }
+}
+
+
+
+/* ===============================
+   UPCOMING SECTION
+================================= */
+
+.upcoming-section {
+  padding: 120px 8%;
+  text-align: center;
+  background: white;
+}
+
+.upcoming-section h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.upcoming-section p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 30px;
+}

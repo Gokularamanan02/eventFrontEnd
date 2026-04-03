@@ -1,72 +1,73 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import MainNavbar from "../components/Mainnavbar";
-
-import "../styles/Mainpage.css";
+import "../styles/NewHome.css";
+import Orb3D from "./Orb3D";
 
 const MainPage = () => {
   const navigate = useNavigate();
+  const orbRef = useRef(null);
+
+  const handleMouseMove = (e) => {
+    if (!orbRef.current) return;
+
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const rotateY = ((x / rect.width) - 0.5) * 30;
+    const rotateX = ((y / rect.height) - 0.5) * -30;
+
+    orbRef.current.style.transform = `
+      rotateY(${rotateY}deg)
+      rotateX(${rotateX}deg)
+    `;
+  };
+
+  const handleMouseLeave = () => {
+    if (!orbRef.current) return;
+    orbRef.current.style.transform = "rotateY(0deg) rotateX(0deg)";
+  };
 
   return (
-    <div>
-      {/* HERO SECTION */}
-      <div
-        className="hero-container"
-        style={{
-          backgroundImage: "url('/bannere.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <MainNavbar />
+    <div className="hero-container">
+      <div className="hero-left">
+        <h1 className="hero-title">
+          National Level <br />
+          Technical Symposium
+        </h1>
 
-        <div className="hero-overlay">
-          <div className="hero-content text-center">
-            <h1 className="text-5xl font-bold text-white mb-4">
-              NATIONAL LEVEL <br /> TECHNICAL SYMPOSIUM
-            </h1>
+        <p className="hero-subtitle">
+          A premium platform for students to participate in technical
+          events, workshops, and innovation challenges across the nation.
+        </p>
 
-            <p className="text-xl text-white mb-6 max-w-2xl mx-auto">
-              A national platform for students to participate in technical events,
-              workshops, and innovation challenges.
-            </p>
+        <div className="hero-buttons">
+          <button
+            className="btn-primary"
+            onClick={() => navigate("/events")}
+          >
+            Explore Events
+          </button>
 
-            <div className="hero-actions flex justify-center gap-4">
-              <button
-                className="btn-primary"
-                onClick={() => navigate("/events")}
-              >
-                EXPLORE EVENTS
-              </button>
-
-              <button
-                className="btn-secondary"
-                onClick={() => navigate("/dashboard")}
-              >
-                DASHBOARD
-              </button>
-            </div>
-          </div>
+          <button
+            className="btn-secondary"
+            onClick={() => navigate("/dashboard")}
+          >
+            Dashboard
+          </button>
         </div>
       </div>
 
-      {/* UPCOMING EVENTS SECTION */}
-      <section className="max-w-7xl mx-auto py-12 px-4 text-center">
-        <h2 className="text-3xl font-bold mb-6">
-          Upcoming Events
-        </h2>
-
-        <p className="text-lg text-gray-600 mb-6">
-          Explore all upcoming events in detail on the dedicated page.
-        </p>
-
-        <button
-          className="btn-primary"
-          onClick={() => navigate("/upcoming-events")}
-        >
-          View Upcoming Events
-        </button>
-      </section>
+      <div
+        className="hero-right"
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div ref={orbRef} className="floating-orb">
+          <Orb3D />
+        </div>
+        <div className="floating-orb-glow"></div>
+      </div>
     </div>
   );
 };

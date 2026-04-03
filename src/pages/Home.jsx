@@ -1,8 +1,9 @@
-import React from "react";
+import Particles from "@tsparticles/react";
+import { loadFull } from "tsparticles";
+import { useCallback } from "react";
 import { useAuth } from "../context/AuthContext";
-import "../styles/HomeRegistration.css";
-import "../styles/Mainpage.css";
-import "../styles/Event.css";
+import Hero from "../components/Layout/Hero";
+
 const eventsData = [
   { id: 1, name: "Tech Symposium", date: "2026-01-10", venue: "Auditorium" },
   { id: 2, name: "Coding Hackathon", date: "2026-01-15", venue: "Lab 3" },
@@ -20,28 +21,36 @@ const Home = () => {
       return;
     }
     alert(`Registered for ${event.name} successfully!`);
-    // Here you can call your API to save the registration
   };
 
   return (
-    <div className="home-wrapper">
-      <h2>Ongoing Events</h2>
-      <div className="events-container">
-        {eventsData.map((event) => (
-          <div key={event.id} className="event-card">
-            <h3>{event.name}</h3>
-            <p>Date: {event.date}</p>
-            <p>Venue: {event.venue}</p>
+    <>
+      {/* 🔥 HERO */}
+      <Hero />
 
-            {user && user.role === "user" ? (
-              <button onClick={() => handleRegister(event)}>Register</button>
-            ) : (
-              <button disabled>Register</button>
-            )}
-          </div>
-        ))}
+      {/* EVENTS */}
+      <div className="home-wrapper">
+        <h2>Ongoing Events</h2>
+
+        <div className="events-container">
+          {eventsData.map((event) => (
+            <div key={event.id} className="event-card">
+              <h3>{event.name}</h3>
+              <p>Date: {event.date}</p>
+              <p>Venue: {event.venue}</p>
+
+              {user && user.role === "user" ? (
+                <button onClick={() => handleRegister(event)}>
+                  Register
+                </button>
+              ) : (
+                <button disabled>Register</button>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
