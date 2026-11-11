@@ -85,7 +85,9 @@ const Orb3D = () => {
     });
 
     renderer.setSize(width, height);
-    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.domElement.style.maxWidth = "100%";
+    renderer.domElement.style.height = "auto";
 
     if (mountRef.current) {
       mountRef.current.appendChild(renderer.domElement);
