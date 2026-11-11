@@ -5,8 +5,8 @@ const Orb3D = () => {
   const mountRef = useRef(null);
 
   useEffect(() => {
-
     /* ================= GLOBAL PARTICLES ================= */
+
     const interval = setInterval(() => {
       if (window.tsParticles) {
         window.tsParticles.load("tsparticles", {
@@ -19,7 +19,9 @@ const Orb3D = () => {
               value: ["#ffffff", "#ff0080", "#00c6ff", "#6a11cb"],
             },
 
-            size: { value: { min: 1, max: 3 } },
+            size: {
+              value: { min: 1, max: 3 },
+            },
 
             opacity: {
               value: 0.6,
@@ -34,7 +36,9 @@ const Orb3D = () => {
               speed: 0.4,
             },
 
-            links: { enable: false },
+            links: {
+              enable: false,
+            },
           },
 
           interactivity: {
@@ -44,6 +48,7 @@ const Orb3D = () => {
                 mode: "repulse",
               },
             },
+
             modes: {
               repulse: {
                 distance: 1,
@@ -65,7 +70,13 @@ const Orb3D = () => {
 
     const scene = new THREE.Scene();
 
-    const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(
+      45,
+      width / height,
+      0.1,
+      1000
+    );
+
     camera.position.z = 6;
 
     const renderer = new THREE.WebGLRenderer({
@@ -76,14 +87,16 @@ const Orb3D = () => {
     renderer.setSize(width, height);
     renderer.setPixelRatio(window.devicePixelRatio);
 
-    mountRef.current.appendChild(renderer.domElement);
+    if (mountRef.current) {
+      mountRef.current.appendChild(renderer.domElement);
+    }
 
     /* ================= PLANET ================= */
 
     const geometry = new THREE.SphereGeometry(1.6, 64, 64);
 
     const material = new THREE.MeshStandardMaterial({
-      color: 0xff00808,
+      color: 0xff0080,
       roughness: 0.0,
       metalness: 0.2,
       emissive: 0x6a11cb,
@@ -95,7 +108,7 @@ const Orb3D = () => {
 
     /* ================= RING ================= */
 
-    const ringGeo = new THREE.RingGeometry(2,2.5, 1000);
+    const ringGeo = new THREE.RingGeometry(2, 2.5, 1000);
 
     const ringMat = new THREE.MeshBasicMaterial({
       color: 0x00c6ff,
@@ -106,6 +119,7 @@ const Orb3D = () => {
 
     const ring = new THREE.Mesh(ringGeo, ringMat);
     ring.rotation.x = Math.PI / 2.5;
+
     scene.add(ring);
 
     /* ================= LIGHTING ================= */
@@ -122,12 +136,15 @@ const Orb3D = () => {
     light3.position.set(0, -5, 5);
     scene.add(light3);
 
-    scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
 
     /* ================= ANIMATION ================= */
 
+    let animationFrameId;
+
     const animate = () => {
-      requestAnimationFrame(animate);
+      animationFrameId = requestAnimationFrame(animate);
 
       planet.rotation.y += 0.003;
       ring.rotation.z += 0.002;
@@ -137,14 +154,35 @@ const Orb3D = () => {
 
     animate();
 
+    /* ================= CLEANUP ================= */
+
     return () => {
-      mountRef.current.removeChild(renderer.domElement);
+      clearInterval(interval);
+
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+
+      if (
+        mountRef.current &&
+        renderer.domElement &&
+        mountRef.current.contains(renderer.domElement)
+      ) {
+        mountRef.current.removeChild(renderer.domElement);
+      }
+
+      geometry.dispose();
+      material.dispose();
+      ringGeo.dispose();
+      ringMat.dispose();
+
+      renderer.dispose();
     };
   }, []);
 
   return (
     <>
-      {/* 🌌 GLOBAL PARTICLES (FULL SCREEN) */}
+      {/* 🌌 GLOBAL PARTICLES */}
       <div
         id="tsparticles"
         style={{

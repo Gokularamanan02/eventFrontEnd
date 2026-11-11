@@ -1,46 +1,26 @@
-import axios from "axios";
-import React from "react";
-// Backend base URL
-const API_URL = "https://eventserver-18lb.onrender.com/api/events";
+import { eventsApi } from "./api";
 
 // Get all events (READ - all users)
-export const getAllEvents = async () => {
-  const response = await axios.get(API_URL);
-  return response.data;
+export const getAllEvents = async (params) => {
+  return await eventsApi.getEvents(params);
 };
 
 // Get single event by ID (READ)
 export const getEventById = async (id) => {
-  const response = await axios.get(`${API_URL}/${id}`);
-  return response.data;
+  return await eventsApi.getEventById(id);
 };
 
 // Add new event (CREATE - admin)
-export const addEvent = async (eventData, token) => {
-  const response = await axios.post(API_URL, eventData, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  return response.data;
+export const addEvent = async (eventData) => {
+  return await eventsApi.createEvent(eventData);
 };
 
 // Update event (UPDATE - admin)
-export const updateEvent = async (id, eventData, token) => {
-  const response = await axios.put(`${API_URL}/${id}`, eventData, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  return response.data;
+export const updateEvent = async (id, eventData) => {
+  return await eventsApi.updateEvent(id, eventData);
 };
 
 // Delete event (DELETE - admin)
-export const deleteEvent = async (id, token) => {
-  const response = await axios.delete(`${API_URL}/${id}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  return response.data;
+export const deleteEvent = async (id) => {
+  return await eventsApi.deleteEvent(id);
 };

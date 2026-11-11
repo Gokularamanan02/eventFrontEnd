@@ -166,7 +166,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url('../../assets/hero/loginbg.png') center/cover no-repeat;
+  background: url('../assets/hero/loginbg.png') center/cover no-repeat;
   font-family: 'Poppins', sans-serif;
 }
 
