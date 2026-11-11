@@ -1,8 +1,11 @@
 import axios from "axios";
 
-// Configurable base URL: uses VITE_API_BASE_URL env var if set, otherwise fallback to deployed backend
+// Configurable base URL: uses VITE_API_BASE_URL env var if set, otherwise smart detects local vs deployed backend
 export const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || "https://eventserver-18lb.onrender.com/api";
+  import.meta.env.VITE_API_BASE_URL ||
+  (typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
+    ? "http://localhost:3000/api"
+    : "https://eventserver-18lb.onrender.com/api");
 
 const api = axios.create({
   baseURL: API_BASE_URL,
